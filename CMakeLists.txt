@@ -12,6 +12,7 @@ FetchContent_Declare(SFML
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
+set(SFML_BUILD_NETWORK OFF CACHE BOOL "" FORCE)  # Add this line
 
 add_executable(main src/main.cpp)
 target_compile_features(main PRIVATE cxx_std_17)
