@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.28)
 project(CMakeSFMLProject LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
+set(SFML_BUILD_NETWORK OFF CACHE BOOL "" FORCE)
 include(FetchContent)
 FetchContent_Declare(SFML
     GIT_REPOSITORY https://github.com/SFML/SFML.git
@@ -11,8 +11,6 @@ FetchContent_Declare(SFML
     EXCLUDE_FROM_ALL
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
-
-set(SFML_BUILD_NETWORK OFF CACHE BOOL "" FORCE)  # Add this line
 
 add_executable(main src/main.cpp)
 target_compile_features(main PRIVATE cxx_std_17)
